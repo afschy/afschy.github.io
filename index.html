@@ -3,149 +3,408 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmad Farhan Shahriar Chowdhury | Academic CV</title>
+    <title>Ahmad Farhan Shahriar Chowdhury</title>
     <style>
         :root {
-            --text-color: #2c3e50;
-            --header-color: #1a252f;
-            --border-color: #dcdde1;
+            --text: #2c3e50;
+            --heading: #1a252f;
+            --accent: #2980b9;
+            --light: #555;
+            --border: #c8cdd3;
+            --bg: #fdfdfd;
         }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text-color); max-width: 850px; margin: 40px auto; padding: 20px; background: #fdfdfd; }
-        header { text-align: center; margin-bottom: 40px; }
-        h1 { margin: 0; color: var(--header-color); font-size: 2.2rem; }
-        .contact { font-size: 0.95rem; margin-top: 10px; color: #5f6368; }
-        .contact a { color: #3498db; text-decoration: none; }
-        
-        h2 { border-bottom: 2px solid var(--header-color); padding-bottom: 5px; margin-top: 30px; color: var(--header-color); text-transform: uppercase; font-size: 1.1rem; }
-        
-        .entry { margin-bottom: 20px; }
-        .entry-header { display: flex; justify-content: space-between; font-weight: bold; }
-        .entry-subhead { display: flex; justify-content: space-between; font-style: italic; color: #555; }
-        
-        ul { padding-left: 1.5rem; margin-top: 5px; }
-        li { margin-bottom: 5px; }
 
-        .pub { margin-bottom: 15px; }
-        .pub-title { font-weight: 600; color: #2980b9; }
+        * { box-sizing: border-box; }
 
-        .skills-section { display: grid; grid-template-columns: 150px 1fr; gap: 10px; }
-        .skills-label { font-weight: bold; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.65;
+            color: var(--text);
+            max-width: 860px;
+            margin: 40px auto;
+            padding: 0 24px 60px;
+            background: var(--bg);
+            font-size: 0.97rem;
+        }
 
-        .ref-container { display: flex; justify-content: space-between; flex-wrap: wrap; }
-        .ref-box { width: 45%; min-width: 250px; }
+        /* ── Header ── */
+        header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+        header h1 {
+            margin: 0 0 10px;
+            color: var(--heading);
+            font-size: 2.1rem;
+            letter-spacing: 0.02em;
+        }
+        .contact {
+            font-size: 0.93rem;
+            color: var(--light);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 16px;
+        }
+        .contact a { color: var(--accent); text-decoration: none; }
+        .contact a:hover { text-decoration: underline; }
+        .contact .sep { color: #aaa; }
 
-        @media (max-width: 600px) {
-            .entry-header, .entry-subhead { flex-direction: column; }
-            .ref-box { width: 100%; margin-bottom: 20px; }
+        /* ── Section headings ── */
+        h2 {
+            border-bottom: 2px solid var(--heading);
+            padding-bottom: 4px;
+            margin: 32px 0 14px;
+            color: var(--heading);
+            text-transform: uppercase;
+            font-size: 1.0rem;
+            letter-spacing: 0.06em;
+        }
+
+        /* ── Generic entry row ── */
+        .entry { margin-bottom: 18px; }
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 4px;
+            font-weight: 700;
+        }
+        .entry-header .date {
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: var(--light);
+            white-space: nowrap;
+        }
+        .entry-sub {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2px;
+            font-style: italic;
+            color: var(--light);
+            margin-bottom: 4px;
+        }
+        .entry p { margin: 4px 0 0; }
+
+        ul {
+            margin: 6px 0 0;
+            padding-left: 1.4rem;
+        }
+        li { margin-bottom: 4px; }
+
+        /* ── Publications ── */
+        .pub { margin-bottom: 16px; }
+        .pub-title {
+            font-weight: 600;
+            color: var(--text);
+        }
+        .pub-venue {
+            color: var(--accent);
+            font-style: italic;
+        }
+        .pub-authors {
+            color: var(--light);
+            font-size: 0.93rem;
+        }
+        .pub-badge {
+            display: inline-block;
+            background: #eaf4fb;
+            color: var(--accent);
+            border: 1px solid #b3d4eb;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 1px 7px;
+            border-radius: 3px;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+
+        /* ── Academic projects ── */
+        .proj-title {
+            font-weight: 700;
+        }
+        .proj-link {
+            font-size: 0.85rem;
+            margin-left: 8px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 400;
+        }
+        .proj-link:hover { text-decoration: underline; }
+
+        /* ── Skills grid ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 170px 1fr;
+            gap: 6px 0;
+        }
+        .skills-label { font-weight: 700; }
+
+        /* ── References ── */
+        .ref-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .ref-box strong { display: block; margin-bottom: 2px; }
+        .ref-box a { color: var(--accent); text-decoration: none; }
+        .ref-box a:hover { text-decoration: underline; }
+
+        /* ── Responsive ── */
+        @media (max-width: 620px) {
+            header h1 { font-size: 1.6rem; }
+            .entry-header { flex-direction: column; }
+            .entry-sub    { flex-direction: column; }
+            .skills-grid  { grid-template-columns: 1fr; }
+            .ref-grid     { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Ahmad Farhan Shahriar Chowdhury</h1>
-        <div class="contact">
-            farhan.shahriar.2015@gmail.com | +8801701491675 | 
-            <a href="https://github.com/afschy">github.com/afschy</a>
-        </div>
-    </header>
+<header>
+    <h1>Ahmad Farhan Shahriar Chowdhury</h1>
+    <div class="contact">
+        <span><a href="mailto:farhan.shahriar.2015@gmail.com">farhan.shahriar.2015@gmail.com</a></span>
+        <span class="sep">|</span>
+        <span>+8801701491675</span>
+        <span class="sep">|</span>
+        <span><a href="https://github.com/afschy" target="_blank">github.com/afschy</a></span>
+        <span class="sep">|</span>
+        <span><a href="https://scholar.google.com/citations?user=afschy" target="_blank">Google Scholar</a></span>
+    </div>
+</header>
 
-    <section>
-        <h2>Research Interests</h2>
-        <p>Database, Data Management, and Storage Systems.</p>
-    </section>
+<!-- Research Interests -->
+<section>
+    <h2>Research Interests</h2>
+    <p>Database, Data Management, Storage Systems</p>
+</section>
 
-    <section>
-        <h2>Professional Experience</h2>
-        <div class="entry">
-            <div class="entry-header">
-                <span>BRAC University</span>
-                <span>June 2025 - Present</span>
-            </div>
-            <div class="entry-subhead">Lecturer (Full-Time), Dept. of CSE</div>
-            <ul>
-                <li>Courses: Operating Systems, Computer Architecture, Computer Graphics, Machine Learning</li>
-            </ul>
-        </div>
-        <div class="entry">
-            <div class="entry-header">
-                <span>UMass Boston</span>
-                <span>Internship</span>
-            </div>
-            <div class="entry-subhead">Research Intern under Dr. Tarikul Islam Papon</div>
-        </div>
-    </section>
+<!-- Professional Experience -->
+<section>
+    <h2>Professional Experience</h2>
 
-    <section>
-        <h2>Education</h2>
-        <div class="entry">
-            <div class="entry-header">
-                <span>BUET, Dhaka, Bangladesh</span>
-                <span>Sept 2025 - Present</span>
-            </div>
-            <div class="entry-subhead">M.Sc. in Computer Science and Engineering</div>
+    <div class="entry">
+        <div class="entry-header">
+            <span>BRAC University &mdash; Dhaka, Bangladesh</span>
+            <span class="date">June 2025 &ndash; Present</span>
         </div>
-        <div class="entry">
-            <div class="entry-header">
-                <span>BUET, Dhaka, Bangladesh</span>
-                <span>Feb 2020 - March 2025</span>
-            </div>
-            <div class="entry-subhead">
-                <span>B.Sc. in Computer Science and Engineering</span>
-                <span>CGPA: 3.88/4.00</span>
-            </div>
+        <div class="entry-sub">
+            <span>Lecturer (Full-Time), Department of Computer Science and Engineering</span>
         </div>
-    </section>
+        <ul>
+            <li><strong>Courses:</strong> Operating Systems, Computer Architecture, Computer Graphics, Machine Learning</li>
+        </ul>
+    </div>
 
-    <section>
-        <h2>Publications</h2>
-        <div class="pub">
-            <span class="pub-title">ZARC: Re-inventing Zone Allocation for LSMS on ZNS SSD</span><br>
-            Proceedings of the International Workshop on Data Management on New Hardware (DaMoN), 2026.
+    <div class="entry">
+        <div class="entry-header">
+            <span>UMass Boston &mdash; Massachusetts, USA</span>
+            <span class="date">September 2025 &ndash; Present</span>
         </div>
-        <div class="pub">
-            <span class="pub-title">[Under Review] PLAZA: Proximity & Lifetime-Aware Zone Allocation</span><br>
-            Submitted to VLDB 2026.
+        <div class="entry-sub">
+            <span>Research Intern under Dr. Tarikul Islam Papon</span>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section>
-        <h2>Technical Projects</h2>
-        <div class="entry">
-            <div class="entry-header">ATLAS: Automated Tree-based Language Analysis System</div>
-            <p>Developed a Static Analysis Tool for C and C++ that generates interconnected Control-Flow and Data-Flow Graph visualizations using pointer tracking.</p>
-        </div>
-        <div class="entry">
-            <div class="entry-header">RocksDB Extension for ZNS SSD</div>
-            <p>Implementing custom algorithms for Zone Allocation and Garbage Collection within ZenFS.</p>
-        </div>
-    </section>
+<!-- Education -->
+<section>
+    <h2>Education</h2>
 
-    <section>
-        <h2>Technical Skills</h2>
-        <div class="skills-section">
-            <div class="skills-label">Languages:</div>
-            <div>C, C++, Python, Java, Bash, SQL, RISC-V & x86 Assembly</div>
-            <div class="skills-label">Tools:</div>
-            <div>RocksDB, Docker, PostgreSQL, MongoDB, OpenGL, Xv6</div>
+    <div class="entry">
+        <div class="entry-header">
+            <span>Bangladesh University of Engineering and Technology &mdash; Dhaka, Bangladesh</span>
+            <span class="date">June 2025 &ndash; Present</span>
         </div>
-    </section>
+        <div class="entry-sub">
+            <span>M.Sc. in Computer Science and Engineering</span>
+        </div>
+    </div>
 
-    <section>
-        <h2>References</h2>
-        <div class="ref-container">
-            <div class="ref-box">
-                <strong>Dr. Tarikul Islam Papon</strong><br>
-                Assistant Professor, UMass Boston<br>
-                t.papon@umb.edu
-            </div>
-            <div class="ref-box">
-                <strong>Dr. Rifat Shahriyar</strong><br>
-                Professor, BUET<br>
-                rifat@cse.buet.ac.bd
-            </div>
+    <div class="entry">
+        <div class="entry-header">
+            <span>Bangladesh University of Engineering and Technology &mdash; Dhaka, Bangladesh</span>
+            <span class="date">February 2020 &ndash; March 2025</span>
         </div>
-    </section>
+        <div class="entry-sub">
+            <span>B.Sc. in Computer Science and Engineering</span>
+            <span>CGPA: 3.88 / 4.00</span>
+        </div>
+        <p><strong>Relevant Coursework:</strong> Structured Programming Language, Data Structures and Algorithms, Compiler, Computer Architecture, Operating Systems, Computer Security, Computer Graphics, Machine Learning</p>
+    </div>
+</section>
+
+<!-- Awards & Achievements -->
+<section>
+    <h2>Awards &amp; Achievements</h2>
+    <ul>
+        <li><strong>Research Grant:</strong> Recipient of the RISE BUET Students&rsquo; Research Grant (for Undergraduate Thesis)</li>
+        <li><strong>Dean&rsquo;s List:</strong> Included in the Dean&rsquo;s List of Level-1 and Level-2</li>
+    </ul>
+</section>
+
+<!-- Publications -->
+<section>
+    <h2>Publications</h2>
+
+    <div class="pub">
+        <div class="pub-title">ZARC: Re-inventing Zone Allocation for LSMs on ZNS SSD</div>
+        <div class="pub-authors">Farhan S. Chowdhury, Shadman Saqib Eusuf, Subhadeep Sarkar, Tarikul Islam Papon</div>
+        <div class="pub-venue">Proceedings of the International Workshop on Data Management on New Hardware (DaMoN), 2026</div>
+    </div>
+
+    <div class="pub">
+        <span class="pub-badge">Under Review</span>
+        <span class="pub-title">PLAZA: Proximity &amp; Lifetime-Aware Zone Allocation for LSM Engines on ZNS SSDs</span>
+        <div class="pub-authors">Farhan S. Chowdhury, Shadman Saqib Eusuf, Subhadeep Sarkar, Tarikul Islam Papon</div>
+        <div class="pub-venue">VLDB 2026</div>
+    </div>
+</section>
+
+<!-- Posters & Presentations -->
+<section>
+    <h2>Posters &amp; Presentations</h2>
+
+    <div class="entry">
+        <div class="entry-header">
+            <span>UniZNS: Optimizing Any LSM Compactions for ZNS SSDs</span>
+        </div>
+        <div class="entry-sub">
+            <span>Poster at Northeast Database (NEDB) Day &mdash; UMass Boston, Boston, USA</span>
+        </div>
+    </div>
+</section>
+
+<!-- Research Projects -->
+<section>
+    <h2>Research Projects</h2>
+
+    <div class="entry">
+        <div class="entry-header">
+            <span>Extending Support for RocksDB on Zoned Namespace SSD</span>
+            <span class="date">August 2025 &ndash; Present</span>
+        </div>
+        <div class="entry-sub">
+            <span>Advisor: Dr. Tarikul Islam Papon, UMass Boston</span>
+        </div>
+        <p>Currently working on extending ZenFS by implementing different algorithms and policies:</p>
+        <ul>
+            <li><strong>New Zone Allocation:</strong> Deciding which zone to select for writes when a new zone is needed.</li>
+            <li><strong>File Placement:</strong> Deciding where to put a new SST file based on its properties.</li>
+            <li><strong>Garbage Collection:</strong> Deciding which files to move in order to facilitate zone erasure.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <span>Memory-Efficient ML-based Prefetch Filtering (UG Thesis)</span>
+            <span class="date">February 2024 &ndash; March 2025</span>
+        </div>
+        <div class="entry-sub">
+            <span>Advisor: Dr. Rifat Shahriyar, BUET</span>
+        </div>
+        <ul>
+            <li>Developed a Neural Network-based Prefetch Filtering algorithm and a training &amp; testing pipeline in the ChampSim cache simulator; compared with the existing Perceptron-based filter (PPF).</li>
+            <li>Achieved a reduction of <strong>93%</strong> in model weights and <strong>47%</strong> in total memory overhead while keeping performance almost the same as the reference model.</li>
+            <li>Significantly improved Coverage compared to the baseline prefetcher without any significant loss of Accuracy.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <span>ATLAS: Automated Tree-based Language Analysis System for C and C++ source programs</span>
+            <span class="date">October &ndash; November 2025</span>
+        </div>
+        <div class="entry-sub">
+            <span>Advisor: Dr. Mahmuda Naznin, BUET</span>
+        </div>
+        <ul>
+            <li>Developed a Static Analysis Tool for C and C++ that generates interconnected Control-Flow and Data-Flow Graph visualizations.</li>
+            <li>Handled problematic memory-related features such as control-flow through function pointers and tracking variable changes through indirect pointer access.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Selected Academic Projects -->
+<section>
+    <h2>Selected Academic Projects</h2>
+
+    <ul>
+        <li>
+            <span class="proj-title">Computer Architecture (3-1)</span>
+            <a class="proj-link" href="https://github.com/afschy" target="_blank">GitHub</a><br>
+            Created a 4-bit computer from scratch using basic ICs that can run MIPS instructions, along with an assembler and LogiSim/Proteus simulations.
+        </li>
+        <li>
+            <span class="proj-title">Compiler (3-1)</span>
+            <a class="proj-link" href="https://github.com/afschy" target="_blank">GitHub</a><br>
+            Implementation of a basic C compiler in C++, Flex, and GNU Bison that compiles C code to 8086 assembly, featuring Lexical Analysis, Syntax Tree Generation, and Peephole Optimization.
+        </li>
+        <li>
+            <span class="proj-title">Operating Systems (3-2)</span>
+            <a class="proj-link" href="https://github.com/afschy" target="_blank">GitHub</a><br>
+            Implementation of Lottery Scheduling, Multi-Level Feedback Queue Scheduling, Multithreading, Mutex Locks, and Semaphores in the Xv6-riscv kernel (C).
+        </li>
+        <li>
+            <span class="proj-title">Computer Networks (3-2)</span>
+            <a class="proj-link" href="https://github.com/afschy" target="_blank">GitHub</a><br>
+            An FTP server from scratch using Socket Programming in Java; TCP Adaptive Reno Congestion Control Algorithm in ns-3.
+        </li>
+        <li>
+            <span class="proj-title">Computer Graphics (4-1)</span>
+            <a class="proj-link" href="https://github.com/afschy" target="_blank">GitHub</a><br>
+            Implementation of Ray Tracing using C++ and OpenGL.
+        </li>
+        <li>
+            <span class="proj-title">Machine Learning (4-2)</span>
+            <a class="proj-link" href="https://github.com/afschy" target="_blank">GitHub</a><br>
+            Classification via Logistic Regression with Ensemble Learning (Stacking &amp; Bagging); a Feed-forward Neural Network with Batch Normalization, Dropout Regularization, and Adam Optimization &mdash; all from scratch in Python.
+        </li>
+    </ul>
+</section>
+
+<!-- Skills -->
+<section>
+    <h2>Skills</h2>
+    <div class="skills-grid">
+        <div class="skills-label">Languages:</div>
+        <div>Bash, C, C++, Java, JavaScript, RISC-V Assembly, Python, SQL, x86 Assembly</div>
+
+        <div class="skills-label">Research Tools:</div>
+        <div>ChampSim, Scikit-learn, TensorFlow</div>
+
+        <div class="skills-label">Dev Tools &amp; Frameworks:</div>
+        <div>Docker, Express.js, JavaFX, Node.js, MongoDB, PostgreSQL, RocksDB</div>
+
+        <div class="skills-label">Other Technologies:</div>
+        <div>ATmega32, Arduino, Flex, GNU Bison, OpenGL, Proteus, Xv6</div>
+    </div>
+</section>
+
+<!-- References -->
+<section>
+    <h2>References</h2>
+    <div class="ref-grid">
+        <div class="ref-box">
+            <strong>Dr. Tarikul Islam Papon</strong>
+            Assistant Professor, Computer Science Department<br>
+            UMass Boston, Massachusetts, USA<br>
+            <a href="mailto:t.papon@umb.edu">t.papon@umb.edu</a><br>
+            +1 857-225-3615
+        </div>
+        <div class="ref-box">
+            <strong>Dr. Rifat Shahriyar</strong>
+            Professor, Department of CSE<br>
+            Bangladesh University of Engineering and Technology<br>
+            <a href="mailto:rifat@cse.buet.ac.bd">rifat@cse.buet.ac.bd</a><br>
+            +880 1777-403791
+        </div>
+    </div>
+</section>
 
 </body>
 </html>
