@@ -86,8 +86,9 @@ b,strong{ color:var(--ink); font-weight:600 }
 .side h1{
   font-family:'Source Serif 4',Georgia,serif;
   font-size:1.55rem; font-weight:600; line-height:1.22;
-  color:var(--ink); margin:20px 0 6px;
+  color:var(--ink); margin:20px 0 4px;
 }
+.fullname{ font-size:14.5px; color:var(--mute); line-height:1.4; margin:-2px 0 10px }
 .role{ font-size:16px; color:var(--ink); font-weight:600 }
 .affil{ font-size:15px; color:var(--mute); line-height:1.5; margin-bottom:16px }
 .lns{ list-style:none; display:flex; flex-direction:column; gap:2px }
@@ -212,6 +213,8 @@ footer{
 }
 
 /* ── Responsive ── */
+/* Unpin the sidebar when it's taller than the window */
+@media (max-height:800px){ .side{ position:static } }
 @media (max-width:900px){
   .shell{ grid-template-columns:1fr; gap:36px; padding:32px 22px 56px }
   .side{ position:static; display:grid; grid-template-columns:170px 1fr; gap:24px; align-items:center }
