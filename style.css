@@ -144,6 +144,9 @@ section p + p{ margin-top:14px }
 .pub-authors{ font-size:17px; margin-top:4px }
 .pub-authors b{ color:var(--ink) }
 .pub-venue{ font-size:16px; color:var(--mute); font-style:italic; margin-top:2px }
+.pub-points{ list-style:none; margin-top:8px; font-size:16.5px }
+.pub-points li{ position:relative; padding-left:20px; margin:4px 0 }
+.pub-points li::before{ content:"—"; position:absolute; left:0; color:var(--accent) }
 .pub-links{ margin-top:10px; display:flex; flex-wrap:wrap; gap:8px }
 .pub-links a{
   font-size:11px; letter-spacing:.09em; text-transform:uppercase;
